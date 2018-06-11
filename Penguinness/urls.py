@@ -26,7 +26,7 @@ urlpatterns = [
 
     url(r'thebook',app.views.thebook,name='thebook'),
     
-    
+    url(r'spec/',app.views.specsearch,name='specsearch'),
     url(r'subgrp/',app.views.subgrp,name='subgrp'),
     url(r'subcats/',app.views.subcats,name='subcats'),
     url(r'cats/',app.views.cats,name='cats'), 

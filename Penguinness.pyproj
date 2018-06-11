@@ -133,7 +133,6 @@
   <ItemGroup>
     <Content Include="app\static\css\bootstrap.css" />
     <Content Include="app\static\css\bootstrap.min.css" />
-    <Content Include="app\static\css\mdb.min.css" />
     <Content Include="app\static\css\PengStyles1.css" />
     <Content Include="app\static\css\w3.css" />
     <Content Include="app\static\fonts\glyphicons-halflings-regular.eot" />
@@ -325,6 +324,7 @@
     <Content Include="app\templates\pages\menus\tree.html" />
     <Content Include="app\templates\pages\page.html" />
     <Content Include="app\templates\pages\richtextpage.html" />
+    <Content Include="app\templates\tablesearch\SearchResult.html" />
     <Content Include="app\templates\tablesearch\subgroupsearch.html" />
     <Content Include="app\templates\tablesearch\subcatsearch.html" />
     <Content Include="app\templates\tablesearch\catsearch.html" />

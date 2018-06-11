@@ -13,10 +13,9 @@ $(document).ready(function () {
         } else if (cl == 'subgrps') {
             e.preventDefault();
             $("#specstab").load($(this).attr('href'), function () { }).hide().fadeIn(1000);
-        } else {            
-        };
-
-        
-        
+        } else if (cl == 'specs') {
+            e.preventDefault();
+            $('#mainframe').load($(this).attr('href'), function () { }).hide().fadeIn(1000);
+        };                
     });
 });

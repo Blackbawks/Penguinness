@@ -165,3 +165,24 @@ def subgrp(request):
             'specis':X,            
         }
     )
+
+def specsearch(request):
+    if request.method == 'GET':
+        spe = request.GET.get('spec','')
+        X = Reference.objects.filter(parent_id = str(spe))
+        X2 = X.values_list('parent__species','parent__latin').distinct()
+        pspec = X2[0][0]
+        plat = X2[0][1]
+
+        lnou = len(X)
+
+        return render(
+            request,
+            'tablesearch/SearchResult.html',
+            {            
+                'refdat':X,
+                'pspec':pspec,
+                'plat':plat,
+                'lnou':lnou
+            }
+        )
