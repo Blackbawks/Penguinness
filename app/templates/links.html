@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+{% extends "base.html" %}
+{% load staticfiles i18n template_tags %}
+
+{% block main %}
+
+<div class='container-fluid'>
+    <div class="row teamrow1">
+       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h1 style="text-align:center">Some helpful links</h1>
+            <h1 style="text-align:center">------------</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h3 style="text-align:center">Databases</h3>
+            </div>    
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-top:10px">
+                <a href="http://www.scarmarbin.be/index.php"><img class="centimg" src={% static "images/scarmarbin.jpg" %} title="SCAR-MarBIN" alt=""></a>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-top:10px">
+                <a href="http://www.caml.aq/top-predators/index.html"><img class="centimg" src={% static "images/caml.jpg" %} title="Census of Antarctic Marine Life" alt=""></a>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-top:10px">
+                <a href="http://iobis.org/"><img class="centimg" src={% static "images/obis.jpg" %} title="Obis: Ocean Biogeographic Information System" alt=""></a>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h3 style="text-align:center">----------------------------------------------</h3>
+            </div>
+            
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h3 style="text-align:center">Scientific journals</h3>
+            </div>
+
+
+            <table class="table table-condensed">
+	<tbody><tr>
+		<td><a class="lien_ext" href="http://www.ajol.info/journal_index.php?jid=230" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttafrjmarsci.jpg" %} title="afrjmarsci" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.elsevier.com/wps/find/journaldescription.cws_home/622782/description#description" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttanimbehav.jpg" %} title="animbehav" alt=""></a></td>
+		<td><a class="lien_ext" href="http://polaris.nipr.ac.jp/~library/publication/ARe.html#Anchor278222" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttantarrec.jpg" %} title="antarrec" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.cambridge.org/images/journal_catalogue.asp?mnemonic=ANS" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttantarsci.jpg" %} title="antarsci" alt=""></a></td>
+	</tr>
+	<tr>
+		<td><a class="lien_ext" href="http://www.eaam.org/aquamamm.htm" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttaquaticmam.jpg" %} title="aquaticmam" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.ucalgary.ca/aina/pubs/arctic.html" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttarctic.jpg" %} title="arctic" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.aou.org/auk/index.php3" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttauk.jpg" %} title="auk" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.publish.csiro.au/nid/90.htm" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttausjzool.jpg" %} title="ausjzool" alt=""></a></td>
+	</tr>
+	<tr>
+		<td><a class="lien_ext" href="http://www.rzsnsw.org.au/April2002AZ.htm" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttauszool.jpg" %} title="auszool" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.antarctica.ac.uk/Publications/bas_bulletins/index.php" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttbasbull.jpg" %} title="basbull" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.britishbirds.co.uk/" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttbritbird.jpg" %} title="britbird" alt=""></a></td>
+		<td><a class="lien_ext" href="images/books.html" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttbooks.jpg" %} title="books" alt=""></a></td>
+	</tr>
+	<tr>
+		<td><a class="lien_ext" href="http://www.caribjsci.org/" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttcaribjsci.jpg" %} title="caribjsci" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.nrc.ca/cisti/images/cjfas.html" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttcjfas.jpg" %} title="cjfas" alt=""></a></td>
+		<td><a class="lien_ext" href="http://pubs.nrc-cnrc.gc.ca/cgi-bin/rp/rp2_desc_e?cjz" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttcjz.jpg" %} title="cjz" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.academie-sciences.fr/publications/comptes_rendus/CR_biologies.htm" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttcras.jpg" %} title="cras" alt=""></a></td>
+	</tr>
+	<tr>
+		<td><a class="lien_ext" href="http://www.cooper.org/COS/COS_pubs.html#condor" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttcondor.jpg" %} title="condor" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.springer.com/east/home?SGWID=5-102-70-1047854-0&amp;referer=springeronline.com&amp;SHORTCUT=www.springer.com/journal/338" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttcoralreef.jpg" %} title="coralreef" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.blackwell-synergy.com/loi/eco?cookieSet=1" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttecography.jpg" %} title="ecography" alt=""></a></td>
+		<td><a class="lien_ext" href="http://esapubs.org/esapubs/images/monographs.htm" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttecolmonogr.jpg" %} title="ecolmonogr" alt=""></a></td>
+	</tr>
+	<tr>
+		<td><a class="lien_ext" href="http://www.springer.com/sgw/cda/frontpage/0,11855,5-198-70-31865372-detailsPage%253Djournal%257CeditorialBoard%257CeditorialBoard,00.html" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttecolres.jpg" %} title="ecolres" alt=""></a></td>
+		<td><a class="lien_ext" href="http://esapubs.org/esapubs/images/ecology.htm" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttecology.jpg" %} title="ecology" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.publish.csiro.au/?nid=96" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttemu.jpg" %} title="emu" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.elsevier.com/wps/find/journaldescription.cws_home/622871/description#description" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttenvmanag.jpg" %} title="envmanag" alt=""></a></td>
+	</tr>
+	<tr>
+		<td><a class="lien_ext" href="http://www.blackwellpublishing.com/journal.asp?ref=0179-1613&amp;site=1c" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttethol.jpg" %} title="ethol" alt=""></a></td>
+		<td><a class="lien_ext" href="http://fishbull.noaa.gov/" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttfisherybull.jpg" %} title="fisherybull" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.blackwellpublishing.com/journal.asp?ref=0919-9268&amp;site=1" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttfishsci.jpg" %} title="fishsci" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.inhs.uiuc.edu/cbd/HL/Titles.html" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttherpetologica.jpg" %} title="herpetologica" alt=""></a></td>
+	</tr>
+	<tr>
+		<td><a class="lien_ext" href="http://www.springerlink.com/content/100271/" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbutthydrobiologia.jpg" %} title="hydrobiologia" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.bou.org.uk/pubibis.html" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttibis.jpg" %} title="ibis" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.elsevier.com/wps/find/journaldescription.cws_home/622885/description#description" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttices.jpg" %} title="ices" alt=""></a></td>
+		<td><a class="lien_ext" href="http://asa.aip.org/jasa.html" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttjacoustic.jpg" %} title="jacoustic" alt=""></a></td>
+	</tr>
+	<tr>
+		<td><a class="lien_ext" href="http://www.blackwellpublishing.com/journal.asp?ref=0021-8790&amp;site=1" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttjanimecol.jpg" %} title="janimecol" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.blackwellpublishing.com/subs.asp?ref=0908-8857&amp;site=1" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttjab.jpg" %} title="jab" alt=""></a></td>
+		<td><a class="lien_ext" href="http://wwwsoc.nii.ac.jp/jes2/JE.html" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttjethol.jpg" %} title="jethol" alt=""></a></td>
+		<td><a class="lien_ext" href="http://jeb.biologists.org/" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttjeb.jpg" %} title="jeb" alt=""></a></td>
+	</tr>
+	<tr>
+		<td><a class="lien_ext" href="http://www.elsevier.com/wps/find/journaldescription.cws_home/523011/description#description" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttjembe.jpg" %} title="jembe" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.afonet.org/english/journal.html" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttjfo.jpg" %} title="jfo" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.ssarherps.org/pages/JHinstr.php" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttjherpetology.jpg" %} title="jherpetology" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.mammalsociety.org/pubjom/index.html" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttjmammal.jpg" %} title="jmammal" alt=""></a></td>
+	</tr>
+	<tr>
+		<td><a class="lien_ext" href="http://www.cambridge.org/images/journal_catalogue.asp?mnemonic=MBI" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttjmba.jpg" %} title="jmba" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.springerlink.com/(hcxqpsrbx4paj545qczmgl45)/app/home/journal.asp?referrer=parent&amp;backto=linkingpublicationresults,1:110831,1" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttjornit.jpg" %} title="jornit" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.elsevier.com/wps/find/journaldescription.cws_home/600318/description#description" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttjseares.jpg" %} title="jseares" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.blackwellpublishing.com/journal.asp?ref=0952-8369&amp;site=1" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttjzool.jpg" %} title="jzool" alt=""></a></td>
+	</tr>
+	<tr>
+		<td><a class="lien_ext" href="http://www.springerlink.com/(zuk0n2fog3yx30ncccltjjyu)/app/home/journal.asp?referrer=parent&amp;backto=linkingpublicationresults,1:100441,1" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttmarbiol.jpg" %} title="marbiol" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.int-res.com/images/meps/" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttmeps.jpg" %} title="meps" alt=""></a></td>
+		<td><a class="lien_ext" href="http://spo.nwr.noaa.gov/mcontent.htm" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttmarfishrev.jpg" %} title="marfishrev" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.publish.csiro.au/nid/126.htm" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttmarfreshres.jpg" %} title="marfreshres" alt=""></a></td>
+	</tr>
+	<tr>
+		<td><a class="lien_ext" href="http://www.blackwellpublishing.com/journal.asp?ref=0824-0469&amp;site=1" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttmarmam.jpg" %} title="marmam" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.marineornithology.org/index.html" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttmarornit.jpg" %} title="marornit" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.mtsociety.org/publications/journal.cfm" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttmtsjournal.jpg" %} title="mtsjournal" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.monachus-guardian.org/" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttmonachus.jpg" %} title="monachus" alt=""></a></td>
+	</tr>
+	<tr>
+		<td><a class="lien_ext" href="http://www.nature.com/nature/index.html" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttnature.jpg" %} title="nature" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.miyagi.kopas.co.jp/JSFS/jsfs-english/E-PUB/index.html" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttnippon.jpg" %} title="nippon" alt=""></a></td>
+		<td><a class="lien_ext" href="http://osnz.org.nz/publ.htm." title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttnotornis.jpg" %} title="notornis" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.springerlink.com/(d4usyx55wm1u4zv2y3fypm45)/app/home/journal.asp?referrer=parent&amp;backto=linkingpublicationresults,1:100458,1" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttoecologia.jpg" %} title="oecologia" alt=""></a></td>
+	</tr>
+	<tr>
+		<td><a class="lien_ext" href="http://www.nisc.co.za/journals?id=6&amp;PHPSESSID=56269b1c3a6ea06153fd41d75f344c99" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttostrich.jpg" %} title="ostrich" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.journals.uchicago.edu/PBZ/home.html" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttpbz.jpg" %} title="pbz" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.plosone.org/home.action" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttplosone.jpg" %} title="plosone" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.springer.com/sgw/cda/frontpage/0,11855,5-0-70-1045969-detailsPage%253Djournal%257Cdescription%257Cdescription,00.html?referer=www.springer.com%2Fjournal%2F00300%2Fabout" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttpolarbiol.jpg" %} title="polarbiol" alt=""></a></td>
+	</tr>
+	<tr>
+		<td><a class="lien_ext" href="http://polaris.nipr.ac.jp/~penguin/polarbiosci/" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttpbiosci.jpg" %} title="pbiosci" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.pubs.royalsoc.ac.uk/index.cfm?page=1087" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttprocrsoc.jpg" %} title="procrsoc" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.ifm.uib.no/sol/" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttsarsia.jpg" %} title="sarsia" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.sciencemag.org/" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttscience.jpg" %} title="science" alt=""></a></td>
+	</tr>
+	<tr>
+		<td><a class="lien_ext" href="http://www.icm.csic.es/scimar/sci_index.html" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttscientamarina.jpg" %} title="scientamarina" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.ajol.info/journal_index.php?jid=230" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttsajmarsci.jpg" %} title="sajmarsci" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.waterbirds.org/journal.htm" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttwaterbirds.jpg" %} title="waterbirds" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.wfo-cbrc.org/journal.html" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttwesternbirds.jpg" %} title="westernbirds" alt=""></a></td>
+	</tr>
+	<tr>
+		<td><a class="lien_ext" href="http://www.publish.csiro.au/nid/144.htm" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttwildlres.jpg" %} title="wildlres" alt=""></a></td>
+		<td><a class="lien_ext" href="http://www.yamashina.or.jp/english/toppage.html" title="S'ouvre dans une nouvelle fen�tre"><img class='centimg' src={% static "images/bigbuttyamashina.jpg" %} title="yamashina" alt=""></a></td>
+	</tr>
+</tbody></table>
+
+
+
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+</div>
+
+{% endblock %}
+

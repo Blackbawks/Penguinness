@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load staticfiles i18n template_tags %}
+
+{% block extra_js %}
+<script src="{% static "js/Scripts.js" %}"></script>
+{% endblock %}
+
+{% block main %}
+
+<div class='container-fluid'>
+<div class='row homrow1 indexbody'>
+  <div style="padding-top:40px" class='col-md-12 col-lg-3 col-sm-3 col-md-offset-2 col-lg-offset-2 col-sm-offset-2 col-xs-12'>
+      <img class='logos w3-animate-fading' src="{% static 'images/Penguins_divinglogo.png' %}" height=200px>
+      <img class='logos w3-animate-fading' src="{% static 'images/DolphinLogo.png' %}" height=200px>
+      <img class='logos w3-animate-fading' src="{% static 'images/humpback_logo.png' %}" height=200px>
+      <img class='logos w3-animate-fading' src="{% static 'images/sealionlogo.png' %}" height=200px>
+  </div>
+
+  <div style="padding-top:40px" class='welcome col-md-12 col-lg-4 col-md-offset-1 col-lg-offset-1 col-xs-12'>
+    <h1 style="color:white">Welcome to the Penguiness book of dive records!</h1>
+  </div>
+
+
+</div>
+<div class='row homrow2'>
+  <div class='col-md-6 col-lg-6 col-md-offset-2 col-lg-offset-2' style='margin-top:15px;'>
+      <h1> The Penguiness book </h1>
+  </div>
+  <div class='explore col-md-3 col-lg-3 col-xs-12'><span><a class='btn btn-deep-orange waves-effect'
+    href='/thebook'>Explore the book</a></span> </div>
+  <div class='col-md-3 col-lg-3 col-sm-3 col-md-offset-2 col-lg-offset-2'>
+    <img src='static/images/Seal_diving.png' height=180px />
+  </div>
+  <div class='col-md-6 col-lg-6'>
+          <p>
+                  <span style="color:dodgerblue;font-size:20pt">T</span>his webpage is a scientific
+                  database where you will find official records of dive
+                  depth and duration for most diving species of vertebrates. This project was initiated
+                  to answer the questions regularly asked by school teachers, educators, journalists,
+                  scientists: "How deep can animals dive?". Such information is compiled here, using
+                  references from scientific articles from peer-reviewed journals, ensuring that these
+                  values are the most reliable and current estimates.
+          </p>
+  </div>
+
+</div>
+
+<div class="row homrow3">
+
+
+    <div class='col-md-12 col-lg-12 col-sm-12 col-xs-12' style="padding-left:50px;padding-right:50px">
+        <p style="text-align:right;font-size:10pt">cover photo by: Candice Michelot</p>
+    </div>
+
+
+</div>
+
+
+
+</div>
+
+
+<!--<ul>
+    <li><a href="/admin/">Log in to the admin interface</a></li>
+</ul>-->
+
+{% endblock %}

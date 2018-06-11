@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+{% extends "base.html" %}
+{% load staticfiles i18n template_tags %}
+
+{% block main %}
+
+<div class='container-fluid'>
+    <div class="row teamrow1">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h1 style="text-align:center">Meet the Penguiness team</h1>
+            <h1 style="text-align:center">------------</h1>
+        </div>
+
+
+        <div class="percol col-lg-3 col-md-3 col-sm-3 col-xs-12">            
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-6">
+                    <a href=""><img class='personimg' src={% static "images/Yan2.png" %}></a>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-6" style='text-align:center'>
+                    <p>After a PhD and 10 years at the Japanese National Institute of Polar Research Yan entered the CNRS in 2008 and joined the 
+                    CEBC in 2015 where he is now a director of Research. He studies the marine ecology of seabirds with a special emphasis on using 
+                    penguins as sentinels of environmental changes. A PEW fellow since 2017 he collaborates with the WWF-UK and he is heavily involved 
+                    in the Scientific Committee on Antarctic Research and the International bio-logging society (to name only a few).</p>
+                </div>                
+            </div>                 
+        </div>
+
+        <div class="percol col-lg-3 col-md-3 col-sm-3 col-xs-12">            
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-6">
+                    <a href=""><img class='personimg' src={% static "images/Akiko2.png" %}></a>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-6" style='text-align:center'>
+                    <p>Akiko is a specialist of ecology and behaviour of seabirds using bio-logging approaches. After working as a 
+                        researcher at National institute of Polar Research, Japan from 1993 to 2008, she joined CNRS at Strasbourg in 
+                        France as an engineer of research in 2009 and then moved to the CEBC in 2015. She is interested in studying the 
+                        foraging behaviour of penguins and other seabirds in relation to environmental changes. </p>
+                </div>                
+            </div>                 
+        </div>
+
+       <div class="percol col-lg-3 col-md-3 col-sm-3 col-xs-12">            
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-6">
+                    <a href=""><img class='personimg' src={% static "images/Grant2.png" %}></a>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-6" style='text-align:center'>
+                    <p>Grant is a marine ornithologist and data scientist who has an interest in applications of machine learning in ecology and oceanography. He has been involved in a variety of 
+                    interdisciplinary projects over the last decade ranging from seabird interactions wtih environmental factors, 
+                    to modeling the distribution of plants at high resolution around New Zealand. Grant is currently employed full time as an Ecological Modeller
+                    with HiDef Aerial Surveying Ltd., but also runs a small data science company that focuses on building web-based decision support tools (Black Bawks Data Science ltd.)</p>
+                </div>                
+            </div>                 
+        </div>
+
+        <div class="percol col-lg-3 col-md-3 col-sm-3 col-xs-12">            
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-6">
+                    <a href=""><img class='personimg' src={% static "images/Alex2.png" %}></a>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-6" style='text-align:center'>
+                    <p>Currently a policy and advice officer for Scottish Natural Heritage, Alex has a strong interest in the interactions between seabirds and marine renewables (including offshore windfarms and 
+                    tidal turbines). She has worked in a variety of field situations in Alaska and all around the United Kingdom and has a broad depth of knowledge of North Atlantic seabirds.
+                    Her PhD thesis included a thorough review of the diving behaviour of UK seabirds and she is an expert on translating science to policy advice in Scotland. </p>
+                </div>                
+            </div>                 
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}
+

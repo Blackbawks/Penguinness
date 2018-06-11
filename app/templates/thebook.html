@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load staticfiles i18n template_tags %}
+
+{% block extra_js %}
+<script src="{% static "js/Searchscripts.js" %}"></script>
+{% endblock %}
+
+{% block main %}
+<div class="container-fluid" style="min-height:700px;">
+    <div class='row bookrow1'>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h1 style="text-align:center">The Penguiness book</h1>
+            <h1 style="text-align:center">------------</h1>
+        </div>
+    </div>
+    <div class="row bookrow2">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-lg-offset-2">
+            <table class="categorytable">
+                <tbody>
+                {% for x in cats %}
+                <tr>                    
+                    <td><a id="catas" class="catas" href="/cats/?ct={{ x.id }}" style="color:black">{{ x.name }}</a></td>                    
+                </tr>
+                {% endfor %}            
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2" id="subcatstab">
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2" id="subgrpstab">
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2" id="specstab">
+        </div>
+    </div>
+                   
+    
+
+</div>
+
+
+{% endblock %}

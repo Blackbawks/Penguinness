@@ -1,0 +1,29 @@
+﻿
+{% extends 'base.html' %}
+{% load staticfiles i18n template_tags %}
+
+{% block title %}Contact us{% endblock %}
+
+{% block main %}
+
+<div class='container-fluid'>
+
+<div class="row contactrow1" style="min-height:800px">
+
+<div class="col-lg-12 col-md-12">
+<h1 style="text-align:center">Contact</h1>
+<h1 style="text-align:center"> --------- </h1>
+<p style="text-align:center">We would love to hear from you with any ideas for the site, or new data if you see anything missing!</pstyle="text-align:center">
+<form role="form" action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-deep-orange waves-effect" type="submit">Submit</button>
+</form>
+
+</div>
+</div>
+</div>
+
+
+
+{% endblock %}

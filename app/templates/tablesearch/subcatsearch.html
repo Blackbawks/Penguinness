@@ -1,0 +1,15 @@
+﻿{% load staticfiles %}
+{% load i18n %}
+{% load compress template_tags%}
+
+<script src="{% static "js/Searchscripts.js" %}"></script>
+
+<table class="subgrouptable">
+    <tbody>
+     {% for x in sbgrps %}
+    <tr>                    
+        <td><a class="subgrps" href="/subgrp/?sbgr={{ x.id }}" style="color:black">{{ x.name }}</a></td>                    
+    </tr>
+    {% endfor %}            
+    </tbody>
+</table>

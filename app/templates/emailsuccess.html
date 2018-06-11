@@ -1,0 +1,31 @@
+﻿
+{% extends 'base.html' %}
+{% load staticfiles i18n template_tags %}
+
+{% block title %}Contact us{% endblock %}
+
+{% block main %}
+
+<div class='container-fluid'>
+
+<div class="row contactrow1">
+
+<div class="col-lg-12 col-md-12">
+<h1 style="text-align:center">Thanks for submitting! <br /> We'll get back to you as soon as possible</h1>
+<h1 style="text-align:center"> --------------</h1>
+    <p style="text-align:center"> You're now being re-directed to our home page </p>
+
+    <div class="loader">loading...</div>
+</div>
+</div>
+</div>
+
+<meta http-equiv="refresh" content="6; url=/" />
+
+<script type="text/javascript">
+    setTimeout("window.location='/'", 5000);
+</script>
+
+
+
+{% endblock %}

@@ -1,0 +1,14 @@
+﻿{% load staticfiles %}
+{% load i18n %}
+{% load compress template_tags%}
+
+
+<table class="spectable">
+    <tbody>
+     {% for x in specis %}
+    <tr>                    
+        <td><a class="specs" href="/spec/?spec={{ x.id }}" style="color:black">{{ x.species }} ({{x.latin }})</a></td>                    
+    </tr>
+    {% endfor %}            
+    </tbody>
+</table>
