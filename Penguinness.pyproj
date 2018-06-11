@@ -4,7 +4,7 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <Name>Penguinness</Name>
     <RootNamespace>Penguinness</RootNamespace>
-    <InterpreterId>MSBuild|penguinnessEnv|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -339,10 +339,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Interpreter Include="..\..\Environments\penguinnessEnv\">
-      <Id>penguinnessEnv</Id>
+    <Interpreter Include="env\">
+      <Id>env</Id>
       <Version>2.7</Version>
-      <Description>penguinnessEnv (Anaconda 5.1.0 (2.7, 64-bit))</Description>
+      <Description>env (Python 2.7 (64-bit))</Description>
       <InterpreterPath>Scripts\python.exe</InterpreterPath>
       <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
       <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>

@@ -123,7 +123,7 @@ WSGI_APPLICATION = 'Penguinness.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'da42fqscnp0ups',
         'USER': 'fvmcmuwrouwizb',
         'PASSWORD': '6b5a8e954677a6461af6c354ed0bebde1f8e76e45737b77848f50a76938d9c92',
