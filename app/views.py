@@ -171,8 +171,12 @@ def specsearch(request):
         spe = request.GET.get('spec','')
         X = Reference.objects.filter(parent_id = str(spe))
         X2 = X.values_list('parent__species','parent__latin').distinct()
-        pspec = X2[0][0]
-        plat = X2[0][1]
+        if len(X2) == 0:
+            pspec = ''
+            plat = ''
+        else:
+            pspec = X2[0][0]
+            plat = X2[0][1]
 
         lnou = len(X)
 
