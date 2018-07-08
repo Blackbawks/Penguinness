@@ -2,14 +2,13 @@
 {% load i18n %}
 {% load compress template_tags%}
 
-<script src="{% static "js/Searchscripts.js" %}"></script>
 
 
 <table class="spectable">
     <tbody>
      {% for x in specis %}
-    <tr>                    
-        <td><a class="specs" href="/spec/?spec={{ x.id }}" style="color:black">{{ x.species }} ({{x.latin }})</a></td>                    
+    <tr>
+        <td><a data-value="/spec/?spec={{ x.id }}" class="specs" href="#" onclick="catsearch($(this),'#mainframe'); return false;" style="color:black">{{ x.species }} (<i>{{x.latin }}</i>)</a></td>                                                
     </tr>
     {% endfor %}            
     </tbody>

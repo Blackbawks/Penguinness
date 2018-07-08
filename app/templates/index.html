@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 {% load staticfiles i18n template_tags %}
 
+
+
 {% block extra_js %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.3/css/mdb.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.3/js/mdb.min.js"></script>
+
 <script src="{% static "js/Scripts.js" %}"></script>
 {% endblock %}
 

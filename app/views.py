@@ -106,10 +106,10 @@ def thebook(request):
     """Renders the penguiness page."""
     assert isinstance(request, HttpRequest)
   
-    Cats = Category.objects.all()
-    SubCats = Subcategory.objects.all()
-    SubGrp = Subgroup.objects.all()
-    SpeciesTab = Speciestable.objects.all()
+    Cats = Category.objects.exclude(speciestable__id__isnull=True)
+    SubCats = Subcategory.objects.exclude(speciestable__id__isnull=True)
+    SubGrp = Subgroup.objects.exclude(speciestable__id__isnull=True)
+    SpeciesTab = Speciestable.objects.exclude(reference__id__isnull=True)
     
     return render(
         request,
@@ -129,7 +129,7 @@ def thebook(request):
 def cats(request):
     if request.method == 'GET':
         q = request.GET.get('ct','')
-        X = Subcategory.objects.filter(category_id = q)
+        X = Subcategory.objects.filter(category_id = q).exclude(speciestable__id__isnull=True).exclude(speciestable__reference__id__isnull=True)
 
         return render(
             request,
@@ -143,7 +143,7 @@ def cats(request):
 
 def subcats(request):
     sct = request.GET.get('sbct','')
-    X = Subgroup.objects.filter(subcategory_id = sct)
+    X = Subgroup.objects.filter(subcategory_id = sct).exclude(speciestable__id__isnull=True).exclude(speciestable__reference__id__isnull=True)
 
     return render(
         request,
@@ -156,7 +156,8 @@ def subcats(request):
 
 def subgrp(request):
     sp = request.GET.get('sbgr','')
-    X = Speciestable.objects.filter(subgroup_id = sp)
+   
+    X = Speciestable.objects.filter(subgroup_id = sp).exclude(reference__id__isnull=True)
 
     return render(
         request,
@@ -168,7 +169,7 @@ def subgrp(request):
 
 def specsearch(request):
     if request.method == 'GET':
-        spe = request.GET.get('spec','')
+        spe = request.GET.get('spec','')        
         X = Reference.objects.filter(parent_id = str(spe))
         X2 = X.values_list('parent__species','parent__latin').distinct()
         if len(X2) == 0:

@@ -2,13 +2,12 @@
 {% load i18n %}
 {% load compress template_tags%}
 
-<script src="{% static "js/Searchscripts.js" %}"></script>
 
 <table class="subcategorytable">
     <tbody>
      {% for x in sbcats %}
-    <tr>                    
-        <td class="subcatas"><a href="/subcats/?sbct={{ x.id }}" style="color:black" class="subcatas" >{{ x.name }}</a></td>                    
+    <tr>
+        <td><a data-value="/subcats/?sbct={{ x.id }}" class="subcatas" href="#" onclick="catsearch($(this),'#subgrpstab'); return false;" style="color:black">{{ x.name }}</a></td>                                        
     </tr>
     {% endfor %}            
     </tbody>

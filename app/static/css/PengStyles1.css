@@ -93,12 +93,14 @@ a:hover img.centimg {
 
 .bookrow1 {
     padding-top: 50px;
+    overflow-wrap: break-word;
 }
 
 .bookrow2 {
-    padding-top:20px;
-    padding-left:30px;
-    padding-right:30px;
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    overflow-wrap: break-word;
 }
 
 
@@ -121,8 +123,9 @@ a:hover img.centimg {
 
 
 .categorytable td {
-    font-size:2rem;
-    font-family:Roboto;
+    font-size: 2rem;
+    font-family: Roboto;
+    overflow-wrap: break-word;
 }
 
 
@@ -131,6 +134,7 @@ a:hover img.centimg {
     font-family: Roboto;
     transition: all .4s ease;
     -webkit-transition: all .4s ease;
+    overflow-wrap: break-word;
 }
 
 .categorytable a:focus {
@@ -139,12 +143,14 @@ a:hover img.centimg {
     font-weight: 500;
     transition: all .4s ease;
     -webkit-transition: all .4s ease;
+    overflow-wrap: break-word;
 }
 
 
 .subcategorytable td {
     font-size: 2rem;
     font-family: Roboto;
+    overflow-wrap: break-word;
 }
 
 
@@ -153,6 +159,7 @@ a:hover img.centimg {
     font-family: Roboto;
     transition: all .4s ease;
     -webkit-transition: all .4s ease;
+    overflow-wrap: break-word;
 }
 
 .subcategorytable a:focus {
@@ -161,6 +168,7 @@ a:hover img.centimg {
     font-weight: 500;
     transition: all .4s ease;
     -webkit-transition: all .4s ease;
+    overflow-wrap:break-word;
 }
 
 
@@ -168,6 +176,7 @@ a:hover img.centimg {
 .subgrouptable td {
     font-size: 2rem;
     font-family: Roboto;
+    overflow-wrap: break-word;
 }
 
 .subgrouptable td:hover {
@@ -175,6 +184,7 @@ a:hover img.centimg {
     font-family: Roboto;
     transition: all .4s ease;
     -webkit-transition: all .4s ease;
+    overflow-wrap: break-word;
 }
 
 .subgrouptable a:focus {
@@ -183,17 +193,20 @@ a:hover img.centimg {
     font-weight: 500;
     transition: all .4s ease;
     -webkit-transition: all .4s ease;
+    overflow-wrap: break-word;
 }
 
 
 #specstab {
-    max-height:400px;
-    overflow-y:scroll;
+    max-height: 400px;
+    overflow-y: scroll;
+    overflow-wrap: break-word;
 }
 
 .spectable td {
     font-size: 1rem;
     font-family: Roboto;
+    overflow-wrap: break-word;
 }
 
 .spectable td:hover {
@@ -201,6 +214,7 @@ a:hover img.centimg {
     font-family: Roboto;
     transition: all .4s ease;
     -webkit-transition: all .4s ease;
+    overflow-wrap: break-word;
 }
 
 .spectable a:focus {
@@ -209,6 +223,7 @@ a:hover img.centimg {
     font-weight: 500;
     transition: all .4s ease;
     -webkit-transition: all .4s ease;
+    overflow-wrap: break-word;
 }
 
 
@@ -216,28 +231,12 @@ a:hover img.centimg {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .navbar-default {
-  background-image: -webkit-linear-gradient(top, #C5FCF6 0%, #A3C6F0 100%);
-  background-image: -o-linear-gradient(top, #C5FCF6 0%, #A3C6F0 100%);
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#C5FCF6), to(#A3C6F0));
-  background-image: linear-gradient(to bottom, #C5FCF6 0%, #A3C6F0 100%);
-  border-bottom: 1px solid black;
+    background-image: -webkit-linear-gradient(top, #C5FCF6 0%, #A3C6F0 100%);
+    background-image: -o-linear-gradient(top, #C5FCF6 0%, #A3C6F0 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#C5FCF6), to(#A3C6F0));
+    background-image: linear-gradient(to bottom, #C5FCF6 0%, #A3C6F0 100%);
+    border-bottom: 1px solid black;
 }
 
 .navbar-default .navbar-brand {

@@ -1,21 +1,37 @@
-$(document).ready(function () {
-    $('a').on("click", function (e) {
-        var cl = $(this).attr('class');
-        if (cl == 'catas') {
-            e.preventDefault();
-            $("#subcatstab").load($(this).attr('href'), function () { }).hide().fadeIn(1000);
-            $('#subgrpstab').hide();
-            $('#specstab').hide();
-        } else if (cl == 'subcatas') {
-            e.preventDefault();
-            $("#subgrpstab").load($(this).attr('href'), function () { }).hide().fadeIn(1000);
-            $('#specstab').hide();
-        } else if (cl == 'subgrps') {
-            e.preventDefault();
-            $("#specstab").load($(this).attr('href'), function () { }).hide().fadeIn(1000);
-        } else if (cl == 'specs') {
-            e.preventDefault();
-            $('#mainframe').load($(this).attr('href'), function () { }).hide().fadeIn(1000);
-        };                
-    });
-});
+
+
+
+function CallIn(URL, Id) {
+    $.ajax({
+        url: URL,
+        dataType: "html",
+        async: true,
+        success: function (data) {
+            $(Id).hide().html(data).fadeIn({ duration: 1000 });            
+        }
+    })
+};
+
+
+
+
+function catsearch(e,out) {    
+    var ID = $(e).data('value');
+    if (out == '#subcatstab') {
+        $('#subgrpstab').hide();
+        $('#specstab').hide();
+    } else if (out == '#subgrpstab') {
+        $('#specstab').hide();
+    }
+    CallIn(ID,out)
+}
+
+
+
+
+function cs() {
+    var X = $('#Search option:selected').val()
+    var URL = '/spec/?spec='.concat(X); 
+    CallIn(URL,'#mainframe')
+    
+}
