@@ -129,7 +129,7 @@ def thebook(request):
 def cats(request):
     if request.method == 'GET':
         q = request.GET.get('ct','')
-        X = Subcategory.objects.filter(category_id = q).exclude(speciestable__id__isnull=True).exclude(speciestable__reference__id__isnull=True)
+        X = Subcategory.objects.filter(category_id = q).exclude(speciestable__id__isnull=True)
 
         return render(
             request,
@@ -143,7 +143,7 @@ def cats(request):
 
 def subcats(request):
     sct = request.GET.get('sbct','')
-    X = Subgroup.objects.filter(subcategory_id = sct).exclude(speciestable__id__isnull=True).exclude(speciestable__reference__id__isnull=True)
+    X = Subgroup.objects.filter(subcategory_id = sct).exclude(speciestable__id__isnull=True)
 
     return render(
         request,
