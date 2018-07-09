@@ -226,7 +226,9 @@ a:hover img.centimg {
     overflow-wrap: break-word;
 }
 
-
+.persname {
+    text-align:center;
+}
 
 
 
