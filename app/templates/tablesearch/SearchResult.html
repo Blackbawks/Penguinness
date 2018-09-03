@@ -2,50 +2,95 @@
 {% load i18n %}
 {% load compress template_tags %}
 
+
 <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.3/css/mdb.min.css" rel="stylesheet">
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.3/js/mdb.min.js"></script>
 
-<div class="col-lg-12" style="text-align:center">
-    
-    {% if lnou == 0 %}
-        <h1>Sorry, we don't have any data for this species currently</h1>
-        <h2> Head on back and try again... </h2>
-        <div class='explore col-md-12 col-lg-12 col-xs-12' style="text-align:center"><span><a class='btn btn-deep-orange waves-effect'
-        href='/thebook'>Go back</a></span> </div>
-    {% else %}
-        <div class='explore col-md-12 col-lg-12 col-xs-12' style="text-align:right"><span><a class='btn btn-deep-orange waves-effect'
-        href='/thebook'>Return to the book</a></span> </div>
-        <h1>We have {{lnou}} records for {{pspec}} (<i>{{plat}}</i>) </h1>
-        
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Avg depth (m)</th>
-                    <th>Max depth (m)</th>
-                    <th>Sample size</th>
-                    <th>Avg duration (s)</th>
-                    <th>Max duration (s)</th>
-                    <th>Sample size</th>
-                    <th>Site</th>
-                    <th>Reference</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for i in refdat %}
-                <tr>
-                    <td>{{i.depth|convertblank}}</td>
-                    <td>{{i.max_depth|convertblank}}</td>
-                    <td>{{i.sample_size_depth|convertblank}}</td>
-                    <td>{{i.duration|convertblank}}</td>
-                    <td>{{i.max_duration|convertblank}}</td>
-                    <td>{{i.sample_size_duration|convertblank}}</td>
-                    <td>{{i.sitekey.site}}, {{i.sitekey.countrycode.country}}</td>
-                    <td>{{i.reference | safe}}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
 
-        </table>
-                       
-    {% endif %}
+<style>
+    #mapid { height: 400px; border: solid black 5px; box-shadow: 5px 10px #888888;}
+
+</style>
+  
+  
+<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+    {% if lnou == 0 %}
+            <h1>Sorry, we don't have any data for this species currently</h1>
+            <h2> Head on back and try again... </h2>
+            <div class='explore col-md-12 col-lg-12 col-xs-12' style="text-align:center"><span><a class='btn btn-deep-orange waves-effect'
+            href='/thebook'>Go back</a></span> </div>
+        {% else %}
+            <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'> <h1>We have {{lnou}} records for {{pspec}} (<i>{{plat}}</i>) </h1></div>
+            <div class='explore col-md-12 col-lg-12 col-xs-12' style="text-align:right"><span><a class='btn btn-deep-orange waves-effect'
+            href='/thebook'>Return to the book</a></span> </div>
 </div>
+
+<div class='col-lg-4 col-md-4 col-sm-12 col-xs-12'>
+    <div id="mapid"></div>
+      
+    <script type="text/javascript">
+        var mymap = L.map('mapid', {
+            center: [0, 0],
+            zoom: 1
+        });
+    
+
+    var planes = {{sites|safe}}
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
+}).addTo(mymap);
+
+    
+    for (var i = 0; i < planes.length; i++) {
+                marker = new L.marker([planes[i][1],planes[i][2]])
+                    .bindPopup(planes[i][0])
+                    .addTo(mymap);
+            }
+
+    setTimeout(function(){ mymap.invalidateSize()}, 400);
+    </script>
+
+</div>
+
+<div class='col-lg-8 col-md-8 col-sm-12 col-xs-12' style='height:600px;overflow-y:scroll;'>
+
+    <div class="col-lg-12" style="text-align:center" >
+       
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Avg depth (m)</th>
+                        <th>Max depth (m)</th>
+                        <th>Sample size</th>
+                        <th>Avg duration (s)</th>
+                        <th>Max duration (s)</th>
+                        <th>Sample size</th>
+                        <th>Site</th>
+                        <th>Reference</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in refdat %}
+                    <tr>
+                        <td>{{i.depth|convertblank}}</td>
+                        <td>{{i.max_depth|convertblank}}</td>
+                        <td>{{i.sample_size_depth|convertblank}}</td>
+                        <td>{{i.duration|convertblank}}</td>
+                        <td>{{i.max_duration|convertblank}}</td>
+                        <td>{{i.sample_size_duration|convertblank}}</td>
+                        <td>{{i.sitekey.site}}, {{i.sitekey.countrycode.country}}</td>
+                        <td>{{i.reference | safe}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+    
+            </table>
+                           
+        {% endif %}
+    </div>
+
+
+
+</div>
+
+

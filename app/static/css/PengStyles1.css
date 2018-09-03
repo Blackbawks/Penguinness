@@ -92,12 +92,12 @@ a:hover img.centimg {
 
 
 .bookrow1 {
-    padding-top: 50px;
+    padding-top: 80px;
     overflow-wrap: break-word;
 }
 
 .bookrow2 {
-    padding-top: 20px;
+    padding-top: 5px;
     padding-left: 30px;
     padding-right: 30px;
     overflow-wrap: break-word;
@@ -388,3 +388,29 @@ a:hover img.centimg {
     }
 }
 
+
+
+
+
+
+
+.tableFixHead {
+    overflow-y: auto;
+    height: 100px;
+  }
+  
+  .tableFixHead table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .tableFixHead th,
+  .tableFixHead td {
+    padding: 8px 16px;
+  }
+  
+  .tableFixHead th {
+    position: sticky;
+    top: 0;
+    background: #eee;
+  }

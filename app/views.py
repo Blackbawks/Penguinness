@@ -1,6 +1,7 @@
 """
 Definition of views.
 """
+import json
 from app.forms import ContactForm
 from django.shortcuts import render
 from django.http import HttpRequest
@@ -9,6 +10,7 @@ from datetime import datetime
 from django.core.mail import EmailMessage
 from django.shortcuts import redirect
 from django.template.loader import get_template
+from django.core.serializers.json import DjangoJSONEncoder
 
 from app.models import Countrytable, Category, Subcategory, Subgroup, Reference, Sitetable, Speciestable, PenguinnessPhotos
 
@@ -172,6 +174,8 @@ def specsearch(request):
         spe = request.GET.get('spec','')        
         X = Reference.objects.filter(parent_id = str(spe))
         X2 = X.values_list('parent__species','parent__latin').distinct()
+        X3 = X.values_list('sitekey__site','sitekey__lat','sitekey__lon')
+        X4 = json.dumps(list(X3), cls=DjangoJSONEncoder)
         if len(X2) == 0:
             pspec = ''
             plat = ''
@@ -181,6 +185,9 @@ def specsearch(request):
 
         lnou = len(X)
 
+        
+
+
         return render(
             request,
             'tablesearch/SearchResult.html',
@@ -188,6 +195,7 @@ def specsearch(request):
                 'refdat':X,
                 'pspec':pspec,
                 'plat':plat,
-                'lnou':lnou
+                'lnou':lnou,
+                'sites':X4
             }
         )
