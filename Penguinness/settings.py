@@ -103,34 +103,34 @@ WSGI_APPLICATION = 'Penguinness.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        # DB name or path to database file if using sqlite3.
-        "NAME": "penguiness",
-        # Not used with sqlite3.
-        "USER": "ghumphries",
-        # Not used with sqlite3.
-	    "PASSWORD": "penguin",
-#        "PASSWORD": "P3nguinness14752",
-        # Set to empty string for localhost. Not used with sqlite3.
-        "HOST": "",
-        # Set to empty string for default. Not used with sqlite3.
-        "PORT": "5432",
-    }
-}
-
-
 # DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#        'NAME': 'da42fqscnp0ups',
-#        'USER': 'fvmcmuwrouwizb',
-#        'PASSWORD': '6b5a8e954677a6461af6c354ed0bebde1f8e76e45737b77848f50a76938d9c92',
-#        'HOST': 'ec2-54-217-208-52.eu-west-1.compute.amazonaws.com',
-#        'PORT': '5432',       
-#    }
+#     'default': {
+#         "ENGINE": "django.db.backends.postgresql_psycopg2",
+#         # DB name or path to database file if using sqlite3.
+#         "NAME": "penguiness",
+#         # Not used with sqlite3.
+#         "USER": "ghumphries",
+#         # Not used with sqlite3.
+# 	    "PASSWORD": "penguin",
+# #        "PASSWORD": "P3nguinness14752",
+#         # Set to empty string for localhost. Not used with sqlite3.
+#         "HOST": "",
+#         # Set to empty string for default. Not used with sqlite3.
+#         "PORT": "5432",
+#     }
 # }
+
+
+DATABASES = {
+   'default': {
+       'ENGINE': 'django.db.backends.postgresql_psycopg2',
+       'NAME': 'da42fqscnp0ups',
+       'USER': 'fvmcmuwrouwizb',
+       'PASSWORD': '6b5a8e954677a6461af6c354ed0bebde1f8e76e45737b77848f50a76938d9c92',
+       'HOST': 'ec2-54-217-208-52.eu-west-1.compute.amazonaws.com',
+       'PORT': '5432',       
+   }
+}
 
 
 

@@ -187,6 +187,11 @@ def specsearch(request):
             pspec = X2[0][0]
             plat = X2[0][1]
 
+        xx = pspec.lower()
+        xx = xx.replace(' ','_')
+        xx = xx.replace("'",'_')
+        photoname = 'photos/'+xx+'.jpg'
+
         lnou = len(X)
 
         return render(
@@ -194,6 +199,7 @@ def specsearch(request):
             'tablesearch/SearchResult.html',
             {            
                 'refdat':X,
+                'photo':photoname,
                 'pspec':pspec,
                 'plat':plat,
                 'lnou':lnou,
