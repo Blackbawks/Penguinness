@@ -25,6 +25,9 @@ urlpatterns = [
     url(r'^links', app.views.links, name='links'),
 
     url(r'thebook',app.views.thebook,name='thebook'),
+    url(r'Dive_compare',app.views.divecompare,name='divecompare'),
+    url(r'DiveData/',app.views.divedata,name='divedata'),
+
     
     url(r'spec/',app.views.specsearch,name='specsearch'),
     url(r'subgrp/',app.views.subgrp,name='subgrp'),

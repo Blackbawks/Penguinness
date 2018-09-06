@@ -1,0 +1,222 @@
+{% extends "base.html" %}
+{% load staticfiles i18n template_tags %}
+
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
+{% block extra_js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script src="{% static "js/DiveScripts.js" %}"></script>
+<script src="{% static "js/underscore.min.js" %}"></script>
+
+<script type="text/javascript">                       
+        $(document).ready(function () {
+            $('.selectpicker').selectpicker({
+                size: 10,
+                width: 400,                
+            });
+        });                
+</script>
+
+{% endblock %}
+
+{% block main %}
+<div class="container-fluid" style="min-height:700px;">
+    <div class='row bookrow1'>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h1 style="text-align:center">Diving animals</h1>
+            <h1 style="text-align:center">------------</h1>
+            <p style="text-align:center"> <span style="color:dodgerblue;font-size:20pt">T</span>his interactive tool will allow you to compare the dive depths of species in our database. Select up to five species to add to the chart.
+            <br/>You can compare these dive depths to several famous landmarks around the world. Enjoy!</p>
+            <hr style='border-color:black'/>
+        </div>
+    </div>
+
+    <div class='row'>
+        <div class='col-lg-4 col-md-4 col-sm-12 col-xs-12' style="text-align:center;padding-left:40px">
+
+            <div class='row' style='height:300px;'>
+                <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                    <p style='font-size:12pt;text-align:left'>Select some animals (use the + and - to add or remove up to five)</p>
+                    <table>
+                        <tr id='Search1row'>
+                            <td><select class="selectpicker show-tick" data-live-search="true" name="Search1" id="Search1">
+                                <option>Select by common or latin name</option>
+                                {% for x in spec %}                            
+                                    <option value="{{x.id}}">{{x.species}} (<i>{{x.latin}}</i>)</option>                            
+                                {% endfor %}
+                            </select></td>
+                            <td><a href='#' id='addrow1' onclick="addrow(this); return false;"><span class="glyphicon glyphicon-plus add"></span></a></td>
+                            <td></td>
+                        </tr>
+                        <tr id='Search2row'>
+                            <td><select class="selectpicker show-tick" data-live-search="true" name="Search2" id="Search2">
+                                <option>Select by common or latin name</option>
+                                {% for x in spec %}                            
+                                    <option value="{{x.id}}">{{x.species}} (<i>{{x.latin}}</i>)</option>                            
+                                {% endfor %}
+                            </select></td>
+                            <td><a href='#' onclick="addrow(this); return false;" id='addrow2'><span class="glyphicon glyphicon-plus add"></span></a></td>
+                            <td><a href='#' onclick="removerow(this); return false;"  id='remrow2'><span class="glyphicon glyphicon-minus remove"></span></a></td>
+                        </tr>                    
+                        <tr id='Search3row'>
+                            <td><select class="selectpicker show-tick" data-live-search="true" name="Search3" id="Search3">
+                                <option>Select by common or latin name</option>
+                                {% for x in spec %}                            
+                                    <option value="{{x.id}}">{{x.species}} (<i>{{x.latin}}</i>)</option>                            
+                                {% endfor %}
+                            </select></td>
+                            <td><a href='#' onclick="addrow(this); return false;" id='addrow3'><span class="glyphicon glyphicon-plus add"></span></a></td>
+                            <td><a href='#' onclick="removerow(this); return false;"  id='remrow3'><span class="glyphicon glyphicon-minus remove"></span></a></td>
+                        </tr>                    
+                        <tr id='Search4row'>
+                            <td><select class="selectpicker show-tick" data-live-search="true" name="Search4" id="Search4">
+                                <option>Select by common or latin name</option>
+                                {% for x in spec %}                            
+                                    <option value="{{x.id}}">{{x.species}} (<i>{{x.latin}}</i>)</option>                            
+                                {% endfor %}
+                            </select></td>
+                            <td><a href='#' onclick="addrow(this); return false;" id='addrow4'><span class="glyphicon glyphicon-plus add"></span></a></td>
+                            <td><a href='#' onclick="removerow(this); return false;"  id='remrow4'><span class="glyphicon glyphicon-minus remove"></span></a></td>
+                        </tr>                    
+                        <tr id='Search5row'>
+                            <td><select class="selectpicker show-tick" data-live-search="true" name="Search5" id="Search5">
+                                <option>Select by common or latin name</option>
+                                {% for x in spec %}                            
+                                    <option value="{{x.id}}">{{x.species}} (<i>{{x.latin}}</i>)</option>                            
+                                {% endfor %}
+                            </select></td>
+                            <td><a href='#' onclick="removerow(this); return false;" id='remrow5'><span class="glyphicon glyphicon-minus remove"></span></a></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    
+                </div>
+                <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12' style='padding-top:20px;'>
+                    <button onclick='viewdata()' class='btn btn-primary'>View data</button>
+
+                </div>
+            </div>
+                
+                
+
+            <div class='row'>
+                <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                    <p>Select a landmark <i>(Optional)</i>:</p>
+
+                    <select class="selectpicker show-tick" data-live-search="true" name="Landmark" id="Landmark">
+                        <option>Select a landmark</option>
+                        <option value="979">Angel Falls</option>
+                        <option value="830">Burj Khalifa</option>
+                        <option value="541">One World Trade Center</option>
+                        <option value="443">Empire State Building</option>
+                        <option value="148">Great pyramid of Giza</option>
+                        <option value="91">California Redwood tree</option>
+                        <option value="51">Niagara Falls</option>
+                        <option value="2.2">Yan Ropert-Coudert</option>                           
+                    </select>
+                    <button onclick='addLandmark()' class='btn btn-info'>Add landmark</button>
+                </div>
+            </div>
+                
+        </div>
+
+
+        <div class='col-lg-8 col-md-8 col-sm-12 col-xs-12' style='padding-right:80px;' id='chartframe'>
+            <div id='diveintro'>
+                <h4> Your chart will display here. Select some species and click 'View data' to start! </h4>
+                <p> Note: If nothing displays in the chart it is because we do not have dive depth data for that species. You can 
+                    <span style='color:blue'><a href='/thebook'>check the book</a></span> for more information </p>
+            </div>
+            
+            
+            <canvas id="myChart" style='width:80%;height:100px;display:none;'></canvas>
+        </div>
+
+    </div>
+
+</div>
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'bar',
+
+        // The data for our dataset
+        data: {
+            labels: [],
+            datasets: [{
+                data: [],
+                backgroundColor: [],
+                labels:['Avg dive','Avg dive','Avg dive','Avg dive','Avg dive'],
+                borderColor: ['black','black','black','black','black','black'],
+                borderWidth: 2
+            },{
+                type:'scatter',
+                data:[],
+                backgroundColor: ['white'],
+                pointBackgroundColor: 'black',
+                labels:['Max dive','Max dive','Max dive','Max dive','Max dive'],
+                pointRadius: 5,
+                fill: false,
+                showLine: false
+                
+            }]
+        },
+
+        // Configuration options go here
+        options: {
+            layout: {
+                padding: {
+                    left: 20,
+                    right: 20,
+                    top: 50,
+                    bottom: 40
+                }
+            },
+            defaultFontFamily: Chart.defaults.global.defaultFontFamily = "'Raleway'",
+            scales: {
+                xAxes: [{
+                            barPercentage: 0.5,
+                            gridLines: {
+                                color:'rgba(0,0,0,0)',
+                                zeroLineColor:'#000',
+                                zeroLineWidth:3
+                            },
+                            ticks: {
+                                fontSize: 16, 
+                                fontColor: '#000',
+                                fontStyle: '400'
+                            }
+                        }],
+                yAxes: [{
+                            gridLines: {
+                                color:'white',
+                                zeroLineColor:'#000',
+                                zeroLineWidth:3
+                            },
+                            ticks: {
+                                beginAtZero: true,
+                                fontSize: 16, 
+                                fontColor: '#000',
+                                fontStyle: '400'
+                            }   
+                        }]
+                },
+            legend: { display: false },
+            tooltips: {
+                callbacks: {
+                    label: function(tooltipItem, data) {
+                        var dataset = data.datasets[tooltipItem.datasetIndex];
+                        var index = tooltipItem.index;
+                        return dataset.labels[index] + ': ' + dataset.data[index];
+                    }
+                }
+            },
+            title: {
+                display: true,
+                text: 'Depth of diving animals (m below sea level)'
+            }}
+    });
+
+</script>
+
+{% endblock %}

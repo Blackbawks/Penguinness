@@ -2,15 +2,19 @@
 Definition of views.
 """
 import json
+import numpy as np  
+import pandas as pd 
 from app.forms import ContactForm
 from django.shortcuts import render
-from django.http import HttpRequest
+from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.template import RequestContext
 from datetime import datetime
 from django.core.mail import EmailMessage
 from django.shortcuts import redirect
 from django.template.loader import get_template
 from django.core.serializers.json import DjangoJSONEncoder
+
+
 
 from app.models import Countrytable, Category, Subcategory, Subgroup, Reference, Sitetable, Speciestable, PenguinnessPhotos
 
@@ -185,9 +189,6 @@ def specsearch(request):
 
         lnou = len(X)
 
-        
-
-
         return render(
             request,
             'tablesearch/SearchResult.html',
@@ -199,3 +200,48 @@ def specsearch(request):
                 'sites':X4
             }
         )
+
+
+def divecompare(request):
+
+    assert isinstance(request, HttpRequest)
+    
+    SpeciesTab = Speciestable.objects.exclude(reference__id__isnull=True)
+
+
+    return render(
+        request,
+        'Dive_compare.html',
+        {
+            'title':'Compare dive depths',
+            'message':'Comparing the dive depths of species in the database',
+            'year':datetime.now().year,
+            'spec':SpeciesTab,
+        }
+    )
+
+def divedata(request):
+    if request.method == 'GET':
+        speid = request.GET.getlist('specid',[])        
+        X = Reference.objects.filter(parent_id__in = speid).values_list('parent__species','depth')
+        X2 = np.array(X,dtype=([('keys',object),('data',np.float32)]))
+        X4 = Reference.objects.filter(parent_id__in = speid).order_by('parent__species','-max_depth').distinct('parent__species').values_list('parent__species','max_depth')
+        X5 = np.array(X4,dtype=([('keys',object),('data',np.float32)]))
+        X5 = pd.DataFrame(X5)
+
+
+        tout = X2['data']==0
+        X2['data'][tout] = np.nan
+        
+        X3 = pd.DataFrame(X2)
+
+        group_means = X3.groupby('keys')['data'].apply(np.nanmean)
+
+        group_means = group_means.to_frame()
+        group_means = group_means.reset_index(level=['keys'])
+        gms = pd.concat([group_means,X5['data']],axis=1)
+        gms.columns = ['keys','data','max']
+        gms = gms.round()
+        out = gms.to_json(orient='columns')
+
+        return HttpResponse({out})
