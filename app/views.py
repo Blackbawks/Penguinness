@@ -251,3 +251,60 @@ def divedata(request):
         out = gms.to_json(orient='columns')
 
         return HttpResponse({out})
+
+
+def learnmore(request):
+    assert isinstance(request, HttpRequest)
+    
+    SpeciesTab = Speciestable.objects.exclude(reference__id__isnull=True)
+
+
+    return render(
+        request,
+        'Learn_more.html',
+        {
+            'title':'Compare dive depths',
+            'message':'Comparing the dive depths of species in the database',
+            'year':datetime.now().year,
+            'spec':SpeciesTab,
+        }
+    )
+
+def learnsearch(request):
+    if request.method == 'GET':
+        spe = request.GET.get('spec','')        
+        X = Reference.objects.filter(parent_id = str(spe))
+        X2 = X.values_list('parent__species','parent__latin').distinct()
+
+        Y = X.order_by('-max_depth','depth').values_list('depth','max_depth')
+        Y2 = np.array(Y,dtype=np.float32)
+        X3 = pd.DataFrame(Y2)
+        X3.columns = ['means','maxes']
+        X3.means.loc[X3.means == 0] = np.nan
+        mn = np.round(np.nanmean(X3.means),0)
+        mx = np.max(X3.maxes)
+
+
+        if len(X2) == 0:
+            pspec = ''
+            plat = ''
+        else:
+            pspec = X2[0][0]
+            plat = X2[0][1]
+
+        xx = pspec.lower()
+        xx = xx.replace(' ','_')
+        xx = xx.replace("'",'_')
+        photoname = 'photos/'+xx+'.jpg'
+
+        return render(
+            request,
+            'Information.html',
+            {            
+                'photo':photoname,
+                'pspec':pspec,
+                'plat':plat,
+                'mxdive':mx,
+                'mndive':mn
+            }
+        )

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load staticfiles i18n template_tags %}
+
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
+
+
+{% block extra_js %}
+<script src="{% static "js/Searchscripts.js" %}"></script>
+<script type="text/javascript">                       
+        $(document).ready(function () {
+            $('.selectpicker').selectpicker({
+                size: 10,
+                width: 'auto',                
+            });
+        });                
+</script>
+
+{% endblock %}
+
+{% block main %}
+<div class="container-fluid" style="min-height:700px;">
+        <div class='row bookrow1'>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h1 style="text-align:center">Learn more about diving animals</h1>
+                <h1 style="text-align:center">------------</h1>
+                <p style="text-align:center"> <span style="color:dodgerblue;font-size:20pt">S</span>earch our database and learn more!</p>
+                <hr style='border-color:black'/>
+            </div>
+        </div>
+        <div class='row'>
+                <div class="col-lg-12" style="text-align:center;">
+                        <select class="selectpicker show-tick" data-live-search="true" name="LSearch" id="LSearch">
+                            <option>Select by common or latin name</option>
+                            {% for x in spec %}                            
+                                <option value="{{x.id}}">{{x.species}} (<i>{{x.latin}}</i>)</option>                            
+                            {% endfor %}   
+                        </select>
+                        <button type="button" class="btn btn-primary" id="learnsearch" onclick='ls()'>
+                            <span class="glyphicon glyphicon-search"></span> Search</button>
+
+                </div>
+        </div>
+        <div class='row' id='infoframe' style='min-height:500px;padding:50px 50px 50px 50px;'>
+
+        
+        </div>
+
+
+
+
+
+
+</div>
+
+
+
+{% endblock %}

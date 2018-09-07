@@ -27,6 +27,8 @@ urlpatterns = [
     url(r'thebook',app.views.thebook,name='thebook'),
     url(r'Dive_compare',app.views.divecompare,name='divecompare'),
     url(r'DiveData/',app.views.divedata,name='divedata'),
+    url(r'Learn_more/',app.views.learnmore,name='learnmore'),
+    url(r'info/', app.views.learnsearch,name='learnsearch'),
 
     
     url(r'spec/',app.views.specsearch,name='specsearch'),

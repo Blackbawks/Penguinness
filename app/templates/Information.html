@@ -1,0 +1,73 @@
+{% load staticfiles i18n template_tags %}
+
+<script>
+
+$('#wormspopup').popover({ trigger: "hover" });
+$('#gbifpopup').popover({ trigger: "hover" });
+
+if($('#meandive').text() == 'nan M'){
+    $('#meandive').html('No data')
+}
+
+if($('#maxdive').text() == '0.0 M'){
+    $('#maxdive').html('No data')
+}
+
+
+$("<img/>")
+    .on('load', function() { console.log("image loaded correctly"); })
+    .on('error', function() { $('#specimg').attr("src","../static/photos/no.jpg"); })
+    .attr("src", $('#specimg').attr("src"))
+
+</script>
+
+
+<div id='thebutton'></div>
+<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12' style='text-align:center;'>
+        <h1 style='display:inline-block;padding-right:30px;'>{{pspec}} (<i>{{plat}}</i>) </h1><span style='display:inline-block'>
+                {% with photo as image_static %}
+                    <img id='specimg' src={% static image_static %} />
+                {% endwith %}
+
+                 </span>
+</div> 
+<div class='col-lg-6 col-md-6 col-sm-12 col-xs-12' style='padding-top:30px;'>
+    <div id='wiki'></div>
+    <div id='wikilink'></div>
+</div>
+<div class='col-lg-3 col-md-3 col-sm-12 col-xs-12' style='padding-top:30px;'>
+    <h2>Dive data</h2>
+    <table class='table'>
+        <tr>
+            <td><p>Average dive depth:</p></td>
+            <td><p id='meandive'>{{mndive}} M</p></td>
+        </tr>
+        <tr>
+            <td><p>Max recorded dive:</p></td>
+            <td><p id='maxdive'>{{mxdive}} M</p></td>
+        </tr>
+    </table>
+
+</div>
+
+<div class='col-lg-3 col-md-3 col-sm-12 col-xs-12' style='padding-top:30px;'>
+        <h2>Global datasets</h2>
+        
+        <table class='table'>
+            <tr>
+                <td><p><a id='gbifpopup' href='https://www.gbif.org' style='color:blue;'data-content="Global Biodiversity Information Facility" rel="popover" 
+                    data-placement="bottom">GBIF</a> Id:</p></td>
+                <td id='gbif'></td>
+                <td id='gbifbutton'></td>
+            </tr>
+            <tr>
+                <td><p>
+                        <a id="wormspopup" style='color:blue;' href="http://marinespecies.org/index.php" data-content="World Register of Marine Species" rel="popover" 
+                        data-placement="bottom">WoRMS</a> Id:</p></td>
+                <td id='worms'></td>
+                <td id='wormsbut'></td>
+            </tr>
+        </table>
+    
+    </div>            
+
